@@ -1,0 +1,395 @@
+/* ========================================
+   VARIABLES CSS - Facile à personnaliser
+   ======================================== */
+:root {
+    --primary-color: #0a2540;
+    --secondary-color: #132f4c;
+    --accent-color: #00d4ff;
+    --text-color: #333;
+    --light-bg: #f4f6f8;
+    --white: #ffffff;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   HEADER - Plus dynamique et moderne
+   ======================================== */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 60px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de fond animé */
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    animation: slideDown 0.8s ease;
+}
+
+header p {
+    font-size: 1.3em;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    animation: slideDown 0.8s ease 0.2s backwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   NAVIGATION - Moderne et responsive
+   ======================================== */
+nav {
+    background-color: var(--secondary-color);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+nav a {
+    display: inline-block;
+    color: var(--white);
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Effet de soulignement animé */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+/* ========================================
+   SECTIONS - Layout amélioré
+   ======================================== */
+section {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.8s ease;
+    transition: var(--transition);
+}
+
+section:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   TITRES - Plus impactants
+   ======================================== */
+h2 {
+    color: var(--primary-color);
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--accent-color);
+    position: relative;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+h3 {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   TEXTE - Meilleure lisibilité
+   ======================================== */
+p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ========================================
+   LISTES - Design moderne
+   ======================================== */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 12px 0;
+    padding-left: 35px;
+    position: relative;
+    font-size: 1.1em;
+    transition: var(--transition);
+}
+
+ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+ul li:hover {
+    padding-left: 40px;
+    color: var(--primary-color);
+}
+
+/* ========================================
+   SECTION COMPÉTENCES - Cards améliorées
+   ======================================== */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.skills div {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.skills div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.skills div:hover::before {
+    opacity: 0.05;
+}
+
+.skills div:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-left-width: 6px;
+}
+
+.skills h3,
+.skills p {
+    position: relative;
+    z-index: 1;
+}
+
+.skills h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 1.3em;
+}
+
+.skills p {
+    color: #666;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* ========================================
+   LIENS - Style cohérent
+   ======================================== */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+}
+
+section a {
+    border-bottom: 2px solid transparent;
+}
+
+section a:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* ========================================
+   FOOTER - Design élégant
+   ======================================== */
+footer {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    font-size: 1em;
+}
+
+/* ========================================
+   RESPONSIVE - Mobile friendly
+   ======================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+    
+    header p {
+        font-size: 1.1em;
+    }
+    
+    nav {
+        text-align: center;
+    }
+    
+    nav a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    nav a::after {
+        display: none;
+    }
+    
+    section {
+        padding: 40px 20px;
+        margin: 20px 15px;
+    }
+    
+    h2 {
+        font-size: 1.8em;
+    }
+    
+    .skills {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 40px 20px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    section {
+        padding: 30px 15px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS & INTERACTIONS
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
